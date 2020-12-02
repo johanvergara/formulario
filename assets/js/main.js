@@ -4,10 +4,18 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const passwordTwo = document.getElementById('passwordTwo');
 
+// Registro
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     checkInputs();
+});
+
+// Login
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    checkInputsLogin();
 });
 
 // Validation Form
@@ -19,12 +27,12 @@ function checkInputs(){
     const passwordTwoValue = passwordTwo.value.trim();
 
     if(usernameValue === ''){
-        setErrorFor(username, 'Completa el usuario');
+        setErrorFor(username, 'Completa el Nombre');
     }else{
         setSuccessFor(username);
     }
     if(emailValue == ''){
-        setErrorFor(email, 'Completa el correo electronico');
+        setErrorFor(email, 'Completa el Correo Electronico');
     }else if(!isEmail(emailValue)){
         setErrorFor(email, 'Correo Electronico Invalido');
     }else{
@@ -38,14 +46,14 @@ function checkInputs(){
     if(passwordTwoValue === ''){
         setErrorFor(passwordTwo, 'Completa la Contraseña');
     }else if(passwordValue !== passwordTwoValue){
-        setErrorFor(passwordTwo, 'Las contraseñas no coinciden')
+        setErrorFor(passwordTwo, 'Las Contraseñas no Coinciden')
     }else{
         setSuccessFor(passwordTwo);
     }
 }
 
 // Validations Login
-function checkInputs(){
+function checkInputsLogin(){
     // get the values from the inputs
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
